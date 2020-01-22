@@ -1,0 +1,7 @@
+{
+  "events": "people",
+  "types": "events",
+  "users": "photographer",
+  "roles": "all",
+  "pictures": "type"
+}

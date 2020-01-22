@@ -1,0 +1,20 @@
+{
+  "type1": {
+     "name": "Wedding"
+  },
+  "type2": {
+    "name": "School"
+  },
+  "type3": {
+    "name": "Baby"
+  },
+  "type4": {
+    "name": "Engagement"
+  },
+  "type5": {
+    "name": "Sports"
+  },
+  "type6": {
+    "name": "Landscape"
+  }
+} 
