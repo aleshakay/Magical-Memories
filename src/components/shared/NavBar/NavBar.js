@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
-  Nav, NavItem, NavLink, Button,
+  Nav, NavItem, Button,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import './NavBar.scss';
 
 class NavBar extends React.Component {
   static propTypes = {
@@ -21,30 +23,30 @@ class NavBar extends React.Component {
     const navBuilder = () => {
       if (authed) {
         return (
-        <Nav>
+        <Nav className="NavBar text-center">
           <NavItem>
-            <NavLink href="#">Pictures</NavLink>
+            <Link className="nav-link" to="/event/event123">Pictures</Link>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Schedule</NavLink>
+            <Link className="nav-link" to="event/new">Schedule</Link>
           </NavItem>
           <NavItem>
-            <NavLink href="#">Events</NavLink>
+            <Link className="nav-link" to="/event">Events</Link>
           </NavItem>
           <NavItem>
-            <NavLink href="#">About Us</NavLink>
+            <Link className="nav-link" to="/aboutus">About Us</Link>
           </NavItem>
           <NavItem>
-            <Button color="primary" onClick={this.logMeOut}>Log Me Out</Button>
+            <Button className="float-right logOutButton" onClick={this.logMeOut}>Log Out</Button>
           </NavItem>
         </Nav>
         );
       }
+      return (<Nav className="NavBar text-center"></Nav>);
     };
     return (
     <div>
       { navBuilder() }
-      <hl />
     </div>
     );
   }
