@@ -25,16 +25,16 @@ class NavBar extends React.Component {
         return (
         <Nav className="NavBar text-center">
           <NavItem>
-            <Link className="nav-link" to="/event/event123">Pictures</Link>
+            <Link className="nav-link NavBarLinks" to="/event/event123">Pictures</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link" to="event/new">Schedule</Link>
+            <Link className="nav-link NavBarLinks " to="event/new">Schedule</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link" to="/event">Events</Link>
+            <Link className="nav-link NavBarLinks " to="/event">Events</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link" to="/aboutus">About Us</Link>
+            <Link className="nav-link NavBarLinks " to="/aboutus">About Us</Link>
           </NavItem>
           <NavItem>
             <Button className="float-right logOutButton" onClick={this.logMeOut}>Log Out</Button>
