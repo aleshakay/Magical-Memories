@@ -1,3 +1,18 @@
-.MyNavbar {
-  display: block;
+.NavBar {
+  justify-content: center;
+  font-family: 'La Belle Aurore', cursive;
+  font-size: 32px;
+  color: white;
+    .NavBarLinks {
+      color: white;
+
+    }
+}
+
+.logOutButton{
+  font-family: 'La Belle Aurore', cursive;
+  font-size: 32px;
+  float: right;
+  color: grey;
+  background-color: white;
 }
