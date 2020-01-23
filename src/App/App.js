@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConnection from '../helpers/data/connection';
 
+import NavBar from '../components/shared/NavBar/NavBar';
 import Auth from '../components/pages/Auth/Auth';
 import './App.scss';
 
@@ -23,10 +24,15 @@ class App extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    this.removeListener();
+  }
+
   render() {
+    const { authed } = this.state;
     return (
       <div className="App">
-       <button className="btn button-outline">App</button>
+      <NavBar authed={authed} />
        < Auth/>
       </div>
     );
