@@ -5,7 +5,7 @@
     "date": "12/31/2020",
     "time": 120,
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
-   "typeId":1
+   "typeId": "type1"
   },
   "event2": {
     "name": "Nevaeh Weaver Senior Portraits",
@@ -13,7 +13,7 @@
     "date": "12/31/2021",
     "time": 120,
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
-   "typeId":2
+   "typeId":"type2"
   },
   "event3": {
     "name": "McHaney Reunion",
@@ -21,7 +21,7 @@
     "date": "03/31/2021",
     "time": 180,
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
-    "typeId":3
+    "typeId": "type3"
   },
   "event4": {
     "name": "Smith Family Reunion",
@@ -29,7 +29,7 @@
     "date": "03/31/2020",
     "time": 60,
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
-    "typeId":3
+    "typeId": "type3"
   },
   "event5": {
     "name": "Baby Bowers",
@@ -37,7 +37,7 @@
     "date": "09/31/2020",
     "time": 60,
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
-    "typeId":3
+    "typeId": "type3"
   },
   "event6": {
     "name": "Bowles Wedding",
@@ -45,7 +45,7 @@
     "date": "08/31/2020",
     "time": 260,
     "uid": "12345",
-    "typeId":1
+    "typeId": "type1"
   },
   "event7": {
     "name": "Bowles Engagement",
@@ -53,6 +53,6 @@
     "date": "08/31/2020",
     "time": 60,
     "uid": "12345",
-    "typeId":4
+    "typeId": "type4"
   }
 } 
