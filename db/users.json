@@ -4,7 +4,7 @@
     "lastName": "Reed",
     "phone": "6154811111",
     "email": "aleshak83@gmail.com",
-    "roleId": 1,
+    "roleId": "role1",
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2"
   },
   "user2": {
@@ -12,7 +12,7 @@
     "lastName": "Lawrence",
     "phone": "8703333333",
     "email": "mlawerence@gmail.com",
-    "roleId": 2,
+    "roleId": "role2",
     "uid": "12345"
   },
   "user3": {
@@ -20,7 +20,7 @@
     "lastName": "James",
     "phone": "9011112222",
     "email": "jessiejames@gmail.com",
-    "roleId": 2,
+    "roleId": "role2",
     "uid": "12345"
   }
 } 
