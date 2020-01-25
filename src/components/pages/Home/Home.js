@@ -9,7 +9,7 @@ class Home extends React.Component {
   }
 
   getPictures = () => {
-    pictureData.getPicturesByBventId()
+    pictureData.getPicturesByEventId()
       .then((pictures) => this.setState({ pictures }))
       .catch((err) => console.error('error from get picture', err));
   }

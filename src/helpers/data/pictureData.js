@@ -3,7 +3,7 @@ import apiKeys from '../apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getPicturesByBventId = () => new Promise((resolve, reject) => {
+const getPicturesByEventId = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/pictures.json`)
     .then((result) => {
       const allPicturesObj = result.data;
@@ -25,6 +25,6 @@ const getPicturesByBventId = () => new Promise((resolve, reject) => {
 const getSinglePicture = (pictureId) => axios.get(`${baseUrl}/pictures/${pictureId}.json`);
 
 export default {
-  getPicturesByBventId,
+  getPicturesByEventId,
   getSinglePicture,
 };
