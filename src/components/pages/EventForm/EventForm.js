@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Form, FormGroup, Label, Input, FormFeedback, FormText, Button,
 } from 'reactstrap';
-
+import EventFormBar from '../../shared/EventFormBar/EventFormBar';
 import eventData from '../../../helpers/data/eventData';
 import authData from '../../../helpers/data/authData';
 import './EventForm.scss';
@@ -62,6 +62,7 @@ class EventForm extends React.Component {
     } = this.state;
     return (
       <div className="EventForm">
+        <EventFormBar />
         <Form>
           <FormGroup className="eventFormGroup">
             <Label for="eventName">Event Name</Label>
