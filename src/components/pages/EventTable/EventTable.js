@@ -1,11 +1,20 @@
 import React from 'react';
-import { Table } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
+import Proptypes from 'prop-types';
+
 import eventShape from '../../../helpers/propz/eventShape';
 import './EventTable.scss';
 
 class EventTable extends React.Component {
   static propTypes = {
     event: eventShape.eventShape,
+    deleteBoard: Proptypes.func,
+  }
+
+  deleteEventEvent = (e) => {
+    e.preventDefault();
+    const { deleteEvent, event } = this.props;
+    deleteEvent(event.id);
   }
 
   render() {
@@ -20,6 +29,9 @@ class EventTable extends React.Component {
               <td>{event.date}</td>
               <td>{event.time}</td>
               <td>{event.typeId}</td>
+              <td>
+                <Button className="deleteBtn" onClick={this.deleteEventEvent}>Delete Event</Button>
+              </td>
             </tr>
           </tbody>
         </Table>
