@@ -5,7 +5,7 @@ const eventShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  time: PropTypes.number.isRequired,
+  time: PropTypes.string.isRequired,
   uid: PropTypes.string.isRequired,
   typeId: PropTypes.string.isRequired,
 });

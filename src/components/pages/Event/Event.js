@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import authData from '../../../helpers/data/authData';
 import eventData from '../../../helpers/data/eventData';
-import EventForm from '../EventForm/EventForm';
+import EventForm from '../EventTable/EventTable';
 import typeData from '../../../helpers/data/typeData';
 import './Event.scss';
 
@@ -38,7 +38,7 @@ class Event extends React.Component {
     return (
       <div className="Event">
         <h1>Event</h1>
-        {this.state.events.map((event) => <EventForm key={event.id} event={event} setEventType={this.props.setEventType} />)}
+        {this.state.events.map((event) => <EventForm key={event.id} event={event} />)}
       </div>
 
     );
