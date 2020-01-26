@@ -100,7 +100,7 @@ class EventForm extends React.Component {
             />
             <FormFeedback tooltip>You will not be able to see this</FormFeedback>
           </FormGroup>
-          <FormGroup >
+          <FormGroup className="eventFormGroup">
             <Label for="eventType">Type of Event</Label>
             <Input className="formLabels"
               value={eventType}

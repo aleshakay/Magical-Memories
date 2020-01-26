@@ -34,11 +34,17 @@ class Event extends React.Component {
     this.getEvents();
   }
 
+  deleteEvent = (eventId) => {
+    eventData.deleteEvent(eventId)
+      .then(() => this.getEvents())
+      .catch((err) => console.error('error deleting event', err));
+  }
+
   render() {
     return (
       <div className="Event">
         <h1>Event</h1>
-        {this.state.events.map((event) => <EventForm key={event.id} event={event} />)}
+        {this.state.events.map((event) => <EventForm key={event.id} event={event} deleteEvent={this.deleteEvent}/>)}
       </div>
 
     );
