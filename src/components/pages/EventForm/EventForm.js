@@ -63,7 +63,7 @@ class EventForm extends React.Component {
     return (
       <div className="EventForm">
         <Form>
-          <FormGroup>
+          <FormGroup className="eventFormGroup">
             <Label for="eventName">Event Name</Label>
             <Input className="formLabels"
               value={eventName}
@@ -72,7 +72,7 @@ class EventForm extends React.Component {
             />
             <FormFeedback>You will not be able to see this</FormFeedback>
           </FormGroup>
-          <FormGroup>
+          <FormGroup className="eventFormGroup">
             <Label for="eventDescription">Event Details</Label>
             <Input className="formLabels"
               value={eventDescription}
@@ -81,7 +81,7 @@ class EventForm extends React.Component {
             />
             <FormFeedback valid>Sweet! that name is available</FormFeedback>
           </FormGroup>
-          <FormGroup>
+          <FormGroup className="eventFormGroup">
             <Label for="eventDate">Date Event</Label>
             <Input className="formLabels"
               type="date"
@@ -90,7 +90,7 @@ class EventForm extends React.Component {
             />
             <FormFeedback>Oh noes! that name is already taken</FormFeedback>
           </FormGroup>
-          <FormGroup>
+          <FormGroup className="eventFormGroup">
             <Label for="eventTime">Time of Event</Label>
             <Input className="formLabels"
               type="time"
@@ -99,7 +99,7 @@ class EventForm extends React.Component {
             />
             <FormFeedback tooltip>You will not be able to see this</FormFeedback>
           </FormGroup>
-          <FormGroup>
+          <FormGroup >
             <Label for="eventType">Type of Event</Label>
             <Input className="formLabels"
               value={eventType}

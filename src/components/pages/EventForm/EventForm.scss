@@ -1,7 +1,8 @@
 .saveBtn{
   font-family: 'La Belle Aurore', cursive;
   font-size: 32px;
-  float: center;
+  // float: left;
+  // text-align-last: justify;
   color: grey;
   background-color: white;
 }
@@ -17,4 +18,9 @@
   font-family: 'La Belle Aurore', cursive;
   font-size: 32px;
   color: rgb(241, 124, 144);
+  width: 60%;
+}
+
+.eventFormGroup{
+  text-align-last: justify;
 }
