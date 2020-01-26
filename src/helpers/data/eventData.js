@@ -22,4 +22,7 @@ const getEventsbyUid = (uid) => new Promise((resolve, reject) => {
     });
 });
 
-export default { getEventsbyUid };
+const saveEvent = (eventInfo) => axios.post(`${baseUrl}/events.json`, eventInfo);
+
+
+export default { getEventsbyUid, saveEvent };
