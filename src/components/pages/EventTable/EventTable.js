@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
 
 import eventShape from '../../../helpers/propz/eventShape';
@@ -31,6 +32,7 @@ class EventTable extends React.Component {
               <td>{event.typeId}</td>
               <td>
                 <Button className="deleteBtn" onClick={this.deleteEventEvent}>Delete Event</Button>
+                <Link className="btn btn-light editBtn" to={`/event/${event.id}/edit`}>Edit Event</Link>
               </td>
             </tr>
           </tbody>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Form, FormGroup, Label, Input, FormFeedback, FormText, Button,
+  Form, FormGroup, Label, Input, FormFeedback, Button,
 } from 'reactstrap';
 import EventFormBar from '../../shared/EventFormBar/EventFormBar';
 import eventData from '../../../helpers/data/eventData';
@@ -15,6 +15,36 @@ class EventForm extends React.Component {
     eventTime: '',
     eventType: '',
   }
+
+  componentDidMount() {
+    const { eventId } = this.props.match.params;
+    if (eventId) {
+      eventData.getSingleEvent(eventId)
+        .then((response) => {
+          this.setState({
+            eventName: response.data.name, eventDescription: response.data.description, eventDate: response.data.date, eventTime: response.data.eventTime,
+          });
+        })
+        .catch((err) => console.error('error in get single event', err));
+    }
+  }
+
+  editEventEvent = (e) => {
+    e.preventDefault();
+    const { eventId } = this.props.match.params;
+    const editEvent = {
+      name: this.state.eventName,
+      description: this.state.eventDescription,
+      date: this.state.eventDate,
+      time: this.state.eventTime,
+      typeId: this.state.eventType,
+      uid: authData.getUid(),
+    };
+    eventData.updateEvent(eventId, editEvent)
+      .then(() => this.props.history.push('/'))
+      .catch((err) => console.error('error from edit event', err));
+  }
+
 
   saveScheduleEvent = (e) => {
     e.preventDefault();
@@ -60,6 +90,7 @@ class EventForm extends React.Component {
     const {
       eventName, eventDescription, eventDate, eventTime, eventType,
     } = this.state;
+    const { eventId } = this.props.match.params;
     return (
       <div className="EventForm">
         <EventFormBar />
@@ -108,7 +139,10 @@ class EventForm extends React.Component {
             />
             <FormFeedback valid tooltip>Sweet! that name is available</FormFeedback>
           </FormGroup>
-          <Button className="saveBtn" onClick={this.saveScheduleEvent}>Save Event</Button>
+          { eventId
+            ? <Button className="UpdateBtn" onClick={this.editBoardEvent}>Update Event</Button>
+            : <Button className="saveBtn" onClick={this.editEventEvent}>Save Event</Button>
+          }
         </Form>
       </div>
     );
