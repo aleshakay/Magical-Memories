@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 import Proptypes from 'prop-types';
 
 import eventShape from '../../../helpers/propz/eventShape';
@@ -27,8 +28,7 @@ class EventTable extends React.Component {
             <tr>
               <th scope="row">{event.name}</th>
               <td>{event.description}</td>
-              <td>{event.date}</td>
-              <td>{event.time}</td>
+              <td>{moment(event.date).format('lll')}</td>
               <td>{event.typeId}</td>
               <td>
                 <Button className="deleteBtn" onClick={this.deleteEventEvent}>Delete Event</Button>

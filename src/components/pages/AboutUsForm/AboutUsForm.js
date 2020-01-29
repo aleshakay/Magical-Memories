@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Card, CardImg, CardTitle, CardText, CardGroup,
+  Card, CardImg, CardTitle, CardText,
   CardSubtitle, CardBody, Col,
 } from 'reactstrap';
 import PhotographerCamera from '../../../assets/vaehCamera.jpeg';
@@ -28,8 +28,8 @@ class AboutUsForm extends React.Component {
           <Card body>
             <CardTitle>Our Story</CardTitle>
               <CardText>
-              <p>Magical Moments was created by Minor E. Reed. It was born out of his love for capturing and documenting timeless moments</p>
-              <p>Magical Moments specializes in black and white photography. This love has been embedded into the next generation of Reeds.</p>
+              <p>Magical Moments was created by Minor E. Reed. It was born out of his love for capturing and documenting timeless moments
+              Magical Moments specializes in black and white photography. This love has been embedded into the next generation of Reeds.</p>
             </CardText>
           </Card>
         </Col>
