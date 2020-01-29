@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Form, FormGroup, Label, Input, FormFeedback, FormText, Button,
+  Form, FormGroup, Label, Input, FormFeedback, Button,
 } from 'reactstrap';
 import EventFormBar from '../../shared/EventFormBar/EventFormBar';
 import eventData from '../../../helpers/data/eventData';
@@ -12,17 +12,44 @@ class EventForm extends React.Component {
     eventName: '',
     eventDescription: '',
     eventDate: '',
-    eventTime: '',
     eventType: '',
   }
+
+  componentDidMount() {
+    const { eventId } = this.props.match.params;
+    if (eventId) {
+      eventData.getSingleEvent(eventId)
+        .then((response) => {
+          this.setState({
+            eventName: response.data.name, eventDescription: response.data.description, eventDate: response.data.date, eventType: response.data.typeId,
+          });
+        })
+        .catch((err) => console.error('error in get single event', err));
+    }
+  }
+
+  editEventEvent = (e) => {
+    e.preventDefault();
+    const { eventId } = this.props.match.params;
+    const editEvent = {
+      name: this.state.eventName,
+      description: this.state.eventDescription,
+      date: this.state.eventDate,
+      uid: authData.getUid(),
+      typeId: this.state.eventType,
+    };
+    eventData.updateEvent(eventId, editEvent)
+      .then(() => this.props.history.push('/event'))
+      .catch((err) => console.error('error from edit event', err));
+  }
+
 
   saveScheduleEvent = (e) => {
     e.preventDefault();
     const newEvent = {
       name: this.state.eventName,
       description: this.state.eventDescription,
-      date: this.state.eventDate,
-      time: this.state.eventTime,
+      date: new Date(this.state.eventDate),
       uid: authData.getUid(),
       typeId: this.state.eventType,
     };
@@ -46,10 +73,6 @@ class EventForm extends React.Component {
     this.setState({ eventDate: e.target.value });
   }
 
-  timeChange = (e) => {
-    e.preventDefault();
-    this.setState({ eventTime: e.target.value });
-  }
 
   typeChange = (e) => {
     e.preventDefault();
@@ -58,8 +81,9 @@ class EventForm extends React.Component {
 
   render() {
     const {
-      eventName, eventDescription, eventDate, eventTime, eventType,
+      eventName, eventDescription, eventDate, eventType,
     } = this.state;
+    const { eventId } = this.props.match.params;
     return (
       <div className="EventForm">
         <EventFormBar />
@@ -92,15 +116,6 @@ class EventForm extends React.Component {
             <FormFeedback>Oh noes! that name is already taken</FormFeedback>
           </FormGroup>
           <FormGroup className="eventFormGroup">
-            <Label for="eventTime">Time of Event</Label>
-            <Input className="formLabels"
-              type="time"
-              value={eventTime}
-              onChange={this.timeChange}
-            />
-            <FormFeedback tooltip>You will not be able to see this</FormFeedback>
-          </FormGroup>
-          <FormGroup className="eventFormGroup">
             <Label for="eventType">Type of Event</Label>
             <Input className="formLabels"
               value={eventType}
@@ -108,7 +123,10 @@ class EventForm extends React.Component {
             />
             <FormFeedback valid tooltip>Sweet! that name is available</FormFeedback>
           </FormGroup>
-          <Button className="saveBtn" onClick={this.saveScheduleEvent}>Save Event</Button>
+          { eventId
+            ? <Button className="UpdateBtn" onClick={this.editEventEvent}>Update Event</Button>
+            : <Button className="saveBtn" onClick={this.saveScheduleEvent}>Save Event</Button>
+          }
         </Form>
       </div>
     );

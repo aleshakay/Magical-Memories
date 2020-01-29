@@ -5,6 +5,7 @@ import authData from '../../../helpers/data/authData';
 import eventData from '../../../helpers/data/eventData';
 import EventForm from '../EventTable/EventTable';
 import typeData from '../../../helpers/data/typeData';
+import EventBar from '../../shared/EventBar/EventBar';
 import './Event.scss';
 
 
@@ -43,7 +44,7 @@ class Event extends React.Component {
   render() {
     return (
       <div className="Event">
-        <h1>Event</h1>
+        <EventBar />
         {this.state.events.map((event) => <EventForm key={event.id} event={event} deleteEvent={this.deleteEvent}/>)}
       </div>
 

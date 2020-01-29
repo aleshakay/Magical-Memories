@@ -24,8 +24,9 @@ const getEventsbyUid = (uid) => new Promise((resolve, reject) => {
 
 const saveEvent = (eventInfo) => axios.post(`${baseUrl}/events.json`, eventInfo);
 const deleteEvent = (eventId) => axios.delete(`${baseUrl}/events/${eventId}.json`);
-
+const updateEvent = (eventId, newEventInfo) => axios.put(`${baseUrl}/events/${eventId}.json`, newEventInfo);
+const getSingleEvent = (eventId) => axios.get(`${baseUrl}/events/${eventId}.json`);
 
 export default {
-  getEventsbyUid, saveEvent, deleteEvent,
+  getEventsbyUid, saveEvent, deleteEvent, updateEvent, getSingleEvent,
 };

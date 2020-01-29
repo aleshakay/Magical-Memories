@@ -59,7 +59,7 @@ class App extends React.Component {
             <PrivateRoute path="/event" exact component={Event} authed={authed}/>
             <PublicRoute path="/auth" exact component={Auth} authed={authed}/>
             <PrivateRoute path="/event/new" exact component={EventForm} authed={authed} />
-            <PrivateRoute path="/event/event123/edit" exact component={EventForm} authed={authed} />
+            <PrivateRoute path="/event/:eventId/edit" exact component={EventForm} authed={authed} />
             <PrivateRoute path="/event/event123" exact component={SinglePicture} authed={authed} />
             <PrivateRoute path="/aboutus" exact component={AboutUs} authed={authed} />
           </Switch>
