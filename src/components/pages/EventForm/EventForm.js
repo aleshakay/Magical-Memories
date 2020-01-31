@@ -2,10 +2,14 @@ import React from 'react';
 import {
   Form, FormGroup, Label, Input, FormFeedback, Button,
 } from 'reactstrap';
+// import PropTypes from 'prop-types';
 import EventFormBar from '../../shared/EventFormBar/EventFormBar';
 import eventData from '../../../helpers/data/eventData';
 import authData from '../../../helpers/data/authData';
 import './EventForm.scss';
+import typeShape from '../../../helpers/propz/typeShape';
+import typeData from '../../../helpers/data/typeData';
+import EventDropdown from '../../shared/EventDropdown/EventDropdown';
 
 class EventForm extends React.Component {
   state = {
@@ -13,10 +17,22 @@ class EventForm extends React.Component {
     eventDescription: '',
     eventDate: '',
     eventType: '',
+    types: [],
+  }
+
+  static propTypes = {
+    type: typeShape.typeShape,
+  }
+
+  getType = () => {
+    typeData.getAllEventTypes()
+      .then((types) => this.setState({ types }))
+      .catch((err) => console.error('errors from type:', err));
   }
 
   componentDidMount() {
     const { eventId } = this.props.match.params;
+    this.getType();
     if (eventId) {
       eventData.getSingleEvent(eventId)
         .then((response) => {
@@ -79,9 +95,13 @@ class EventForm extends React.Component {
     this.setState({ eventType: e.target.value });
   }
 
+  selectedEvent = (typeId) => {
+    this.setState({ eventType: typeId });
+  }
+
   render() {
     const {
-      eventName, eventDescription, eventDate, eventType,
+      eventName, eventDescription, eventDate,
     } = this.state;
     const { eventId } = this.props.match.params;
     return (
@@ -117,10 +137,8 @@ class EventForm extends React.Component {
           </FormGroup>
           <FormGroup className="eventFormGroup">
             <Label for="eventType">Type of Event</Label>
-            <Input className="formLabels"
-              value={eventType}
-              onChange={this.typeChange}
-            />
+            <EventDropdown types={this.state.types} selectedEvent={this.selectedEvent}/>
+
             <FormFeedback valid tooltip>Sweet! that name is available</FormFeedback>
           </FormGroup>
           { eventId

@@ -1,10 +1,13 @@
 import React from 'react';
+import PicCarousel from '../../shared/PicCarousel/PicCarousel';
+
 import './SinglePicture.scss';
 
 class SinglePicture extends React.Component {
   render() {
     return (
-      <div className="SinglePicture">SinglePicture</div>
+      <PicCarousel />
+
     );
   }
 }

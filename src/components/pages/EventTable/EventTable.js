@@ -3,13 +3,14 @@ import { Table, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Proptypes from 'prop-types';
-
+import typeShape from '../../../helpers/propz/typeShape';
 import eventShape from '../../../helpers/propz/eventShape';
 import './EventTable.scss';
 
 class EventTable extends React.Component {
   static propTypes = {
     event: eventShape.eventShape,
+    type: typeShape.typeShape,
     deleteBoard: Proptypes.func,
   }
 
@@ -29,8 +30,9 @@ class EventTable extends React.Component {
               <th scope="row">{event.name}</th>
               <td>{event.description}</td>
               <td>{moment(event.date).format('lll')}</td>
+              <td>{event.description}</td>
               <td>{event.typeId}</td>
-              <td>
+                <td>
                 <Button className="deleteBtn" onClick={this.deleteEventEvent}>Delete Event</Button>
                 <Link className="btn btn-light editBtn" to={`/event/${event.id}/edit`}>Edit Event</Link>
               </td>

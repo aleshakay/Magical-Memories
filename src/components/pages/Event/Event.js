@@ -8,7 +8,6 @@ import typeData from '../../../helpers/data/typeData';
 import EventBar from '../../shared/EventBar/EventBar';
 import './Event.scss';
 
-
 class Event extends React.Component {
   static propTypes = {
     setEventType: PropTypes.func,
@@ -33,6 +32,7 @@ class Event extends React.Component {
 
   componentDidMount() {
     this.getEvents();
+    this.getType();
   }
 
   deleteEvent = (eventId) => {
@@ -45,7 +45,7 @@ class Event extends React.Component {
     return (
       <div className="Event">
         <EventBar />
-        {this.state.events.map((event) => <EventForm key={event.id} event={event} deleteEvent={this.deleteEvent}/>)}
+        {this.state.events.map((event) => <EventForm key={event.id} event={event} deleteEvent={this.deleteEvent} types={this.state.types} />)}
       </div>
 
     );
