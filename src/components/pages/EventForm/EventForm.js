@@ -16,6 +16,7 @@ class EventForm extends React.Component {
     eventName: '',
     eventDescription: '',
     eventDate: '',
+    eventTime: '',
     eventType: '',
     types: [],
   }
@@ -65,7 +66,7 @@ class EventForm extends React.Component {
     const newEvent = {
       name: this.state.eventName,
       description: this.state.eventDescription,
-      date: new Date(this.state.eventDate),
+      date: new Date(`${this.state.eventDate} ${this.state.eventTime}`),
       uid: authData.getUid(),
       typeId: this.state.eventType,
     };
@@ -91,7 +92,7 @@ class EventForm extends React.Component {
 
   timeChange = (e) => {
     e.preventDefault();
-    this.setState({ eventDate: e.target.value });
+    this.setState({ eventTime: e.target.value });
   }
 
   typeChange = (e) => {
