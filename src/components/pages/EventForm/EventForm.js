@@ -38,7 +38,7 @@ class EventForm extends React.Component {
       eventData.getSingleEvent(eventId)
         .then((response) => {
           this.setState({
-            eventName: response.data.name, eventDescription: response.data.description, eventDate: response.data.date, eventType: response.data.typeId,
+            eventName: response.data.name, eventDescription: response.data.description, eventDate: response.data.date, eventTime: response.data.time, eventType: response.data.typeId,
           });
         })
         .catch((err) => console.error('error in get single event', err));
@@ -52,6 +52,7 @@ class EventForm extends React.Component {
       name: this.state.eventName,
       description: this.state.eventDescription,
       date: this.state.eventDate,
+      time: this.state.eventTime,
       uid: authData.getUid(),
       typeId: this.state.eventType,
     };
@@ -66,7 +67,8 @@ class EventForm extends React.Component {
     const newEvent = {
       name: this.state.eventName,
       description: this.state.eventDescription,
-      date: new Date(`${this.state.eventDate} ${this.state.eventTime}`),
+      date: this.state.eventDate,
+      time: this.state.eventTime,
       uid: authData.getUid(),
       typeId: this.state.eventType,
     };
@@ -106,7 +108,7 @@ class EventForm extends React.Component {
 
   render() {
     const {
-      eventName, eventDescription, eventDate,
+      eventName, eventDescription, eventDate, eventTime,
     } = this.state;
     const { eventId } = this.props.match.params;
     return (
@@ -144,6 +146,7 @@ class EventForm extends React.Component {
               type="time"
               name="time"
               id="eventTime"
+              value={eventTime}
               onChange={this.timeChange}
               placeholder="time placeholder"
             />

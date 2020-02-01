@@ -2,49 +2,56 @@
   "event1": {
     "name": "Reed Wedding",
     "description": "Destination Wedding",
-    "date": "2020-04-23T18:25:43.511Z",
+    "date": "12/31/2020",
+    "time": "04:30",
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
    "typeId": "type1"
   },
   "event2": {
     "name": "Nevaeh Weaver Senior Portraits",
     "description": "MTCS Black and White Photos",
-    "date": "2020-06-23T18:25:43.511Z",
+    "date": "12/31/2021",
+    "time": "06:30",
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
    "typeId":"type2"
   },
   "event3": {
     "name": "McHaney Reunion",
     "description": "McHaney Annual Family Reunion",
-    "date": "2020-11-23T18:25:43.511Z",
+    "date": "03/31/2021",
+    "time": "08:30",
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
     "typeId": "type3"
   },
   "event4": {
     "name": "Smith Family Reunion",
     "description": "Smith Family Reunion",
-    "date": "2021-04-23T18:25:43.511Z",
+    "date": "03/31/2020",
+    "time": "10:30",
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
     "typeId": "type3"
   },
   "event5": {
     "name": "Baby Bowers",
     "description": "Bowers Baby",
-    "date": "2020-04-23T18:25:43.511Z",
+    "date": "09/31/2020",
+    "time": "12:30",
     "uid": "xcwmubkPNpXSO5VzGqTvhXfwnPw2",
     "typeId": "type3"
   },
   "event6": {
     "name": "Bowles Wedding",
     "description": "Formal Wedding Nashville",
-    "date": "2020-04-23T18:25:43.511Z",
+    "date": "08/31/2020",
+    "time": "04:30",
     "uid": "12345",
     "typeId": "type1"
   },
   "event7": {
     "name": "Bowles Engagement",
     "description": "Outdoor Engagement Picture",
-    "date": "2020-04-23T18:25:43.511Z",
+    "date": "08/31/2020",
+    "time": "09:30",
     "uid": "12345",
     "typeId": "type4"
   }

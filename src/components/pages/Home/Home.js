@@ -28,7 +28,9 @@ class Home extends React.Component {
     return (
       <div className="Home">
         <h1 className="homeTitle">Home</h1>
-        <PicCarousel pictures={pictures} />
+        <div className="homepicture">
+          <PicCarousel pictures={pictures} />
+        </div>
       </div>
     );
   }

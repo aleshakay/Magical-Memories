@@ -29,9 +29,11 @@ class SinglePicture extends React.Component {
     return (
       <div>
         <div>
-        <h1 className="singlePictureTitle">Pictures...</h1>
+          <h1 className="singlePictureTitle">Pictures...</h1>
         </div>
-      <PicCarousel pictures={pictures} />
+        <div className="picCarousel">
+          <PicCarousel pictures={pictures} />
+        </div>
       </div>
     );
   }

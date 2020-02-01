@@ -48,9 +48,9 @@ class Event extends React.Component {
     return (
       <div className="Event">
         <EventBar />
-        <Table bordered responsive>
+        <Table bordered responsive className="eventable">
           <thead>
-            <tr>
+            <tr className="eventTableHeader">
               <th>Name</th>
               <th>Description</th>
               <th>Date</th>

@@ -38,7 +38,7 @@ class EventTableRow extends React.Component {
       <tr className="EventTable">
         <th scope="row">{event.name}</th>
         <td>{event.description}</td>
-        <td>{moment(event.date).format('lll')}</td>
+        <td>{moment(event.date).format('ll')} {moment(`${event.date} ${event.time}`).format('LT')}</td>
         {renderType()}
           <td>
           <Button className="deleteBtn" onClick={this.deleteEventEvent}>Delete Event</Button>
