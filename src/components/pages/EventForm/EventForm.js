@@ -89,6 +89,10 @@ class EventForm extends React.Component {
     this.setState({ eventDate: e.target.value });
   }
 
+  timeChange = (e) => {
+    e.preventDefault();
+    this.setState({ eventDate: e.target.value });
+  }
 
   typeChange = (e) => {
     e.preventDefault();
@@ -133,6 +137,16 @@ class EventForm extends React.Component {
               value={eventDate}
               onChange={this.dateChange}
             />
+          <FormGroup>
+            <Label for="eventTime">Time</Label>
+            <Input
+              type="time"
+              name="time"
+              id="eventTime"
+              onChange={this.timeChange}
+              placeholder="time placeholder"
+            />
+          </FormGroup>
             <FormFeedback>Oh noes! that name is already taken</FormFeedback>
           </FormGroup>
           <FormGroup className="eventFormGroup">
