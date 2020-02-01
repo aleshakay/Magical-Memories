@@ -3,14 +3,14 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Proptypes from 'prop-types';
-import typeShape from '../../../helpers/propz/typeShape';
+// import typeShape from '../../../helpers/propz/typeShape';
 import eventShape from '../../../helpers/propz/eventShape';
 import './EventTableRow.scss';
 
 class EventTableRow extends React.Component {
   static propTypes = {
     event: eventShape.eventShape,
-    types: typeShape.typeShape,
+    // types: typeShape.typeShape,
     deleteBoard: Proptypes.func,
   }
 

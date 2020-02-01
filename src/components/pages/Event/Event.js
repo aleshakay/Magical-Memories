@@ -50,11 +50,13 @@ class Event extends React.Component {
         <EventBar />
         <Table bordered responsive>
           <thead>
-            <th scope="row">Name</th>
-            <td>Description</td>
-            <td>Date</td>
-            <td>Type</td>
-            <td></td>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th></th>
+            </tr>
           </thead>
           <tbody>
             {this.state.events.map((event) => <EventTableRow key={event.id} event={event} deleteEvent={this.deleteEvent} types={this.state.types} />)}
