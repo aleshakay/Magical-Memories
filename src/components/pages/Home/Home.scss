@@ -6,3 +6,9 @@
   background-color: rgb(197, 191, 191);
   padding: 12px;
 }
+
+img{
+  width: 100%;
+  height: -webkit-fill-available;
+  object-fit: contain;
+}

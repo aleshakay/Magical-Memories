@@ -28,7 +28,7 @@ class NavBar extends React.Component {
             <Link className="nav-link NavBarLinks" to="/event/event123">Pictures</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link NavBarLinks " to="event/new">Schedule</Link>
+            <Link className="nav-link NavBarLinks " to="/event/new">Schedule</Link>
           </NavItem>
           <NavItem>
             <Link className="nav-link NavBarLinks " to="/event">Events</Link>

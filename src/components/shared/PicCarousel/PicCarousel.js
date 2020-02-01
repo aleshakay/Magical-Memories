@@ -1,30 +1,64 @@
-import React from 'react';
-import pictureShape from '../../../helpers/propz/pictureShape';
+import React, { useState } from 'react';
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+} from 'reactstrap';
 import './PicCarousel.scss';
+// import pictureShape from '../../../helpers/propz/pictureShape';
 
-class PicCarousel extends React.Component {
-  static propTypes = {
-    picture: pictureShape.pictureShape,
-  }
 
-  render() {
-    const { pictures } = this.props;
-    const makeItem = (pic) => (
-      <div className={pic.id === 'picture1' ? 'carousel-item active' : 'carousel-item'}>
-        <img className="d-block w-100" src={pic.pictureUrl}/>
-      </div>
-    );
+const PicCarousel = (props) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [animating, setAnimating] = useState(false);
 
-    return (
-      <div className="PicCarousel">
-        <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner">
-            {pictures.map((pic) => makeItem(pic))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+  const next = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === props.pictures.length - 1 ? 0 : activeIndex + 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const previous = () => {
+    if (animating) return;
+    const nextIndex = activeIndex === 0 ? props.pictures.length - 1 : activeIndex - 1;
+    setActiveIndex(nextIndex);
+  };
+
+  const goToIndex = (newIndex) => {
+    if (animating) return;
+    setActiveIndex(newIndex);
+  };
+
+  // const getPictures = () => {
+  //   pictureData.getPicturesByEventId()
+  //     .then((picture) => this.setState({ picture }))
+  //     .catch((err) => console.error('error from get picture', err));
+  // };
+
+  const slides = props.pictures.map((picture) => (
+    <CarouselItem
+      onExiting={() => setAnimating(true)}
+      onExited={() => setAnimating(false)}
+      key={picture.id}
+    >
+      <img src={picture.src} alt={picture.eventId} />
+    </CarouselItem>
+  ));
+
+
+  return (
+    <Carousel
+      activeIndex={activeIndex}
+      next={next}
+      previous={previous}
+    >
+      <CarouselIndicators pictures={props.pictures} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      {slides}
+      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+    </Carousel>
+  );
+};
 
 export default PicCarousel;

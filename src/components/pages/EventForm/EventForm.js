@@ -2,26 +2,43 @@ import React from 'react';
 import {
   Form, FormGroup, Label, Input, FormFeedback, Button,
 } from 'reactstrap';
+// import PropTypes from 'prop-types';
 import EventFormBar from '../../shared/EventFormBar/EventFormBar';
 import eventData from '../../../helpers/data/eventData';
 import authData from '../../../helpers/data/authData';
 import './EventForm.scss';
+import typeShape from '../../../helpers/propz/typeShape';
+import typeData from '../../../helpers/data/typeData';
+import EventDropdown from '../../shared/EventDropdown/EventDropdown';
 
 class EventForm extends React.Component {
   state = {
     eventName: '',
     eventDescription: '',
     eventDate: '',
+    eventTime: '',
     eventType: '',
+    types: [],
+  }
+
+  static propTypes = {
+    type: typeShape.typeShape,
+  }
+
+  getType = () => {
+    typeData.getAllEventTypes()
+      .then((types) => this.setState({ types }))
+      .catch((err) => console.error('errors from type:', err));
   }
 
   componentDidMount() {
     const { eventId } = this.props.match.params;
+    this.getType();
     if (eventId) {
       eventData.getSingleEvent(eventId)
         .then((response) => {
           this.setState({
-            eventName: response.data.name, eventDescription: response.data.description, eventDate: response.data.date, eventType: response.data.typeId,
+            eventName: response.data.name, eventDescription: response.data.description, eventDate: response.data.date, eventTime: response.data.time, eventType: response.data.typeId,
           });
         })
         .catch((err) => console.error('error in get single event', err));
@@ -35,6 +52,7 @@ class EventForm extends React.Component {
       name: this.state.eventName,
       description: this.state.eventDescription,
       date: this.state.eventDate,
+      time: this.state.eventTime,
       uid: authData.getUid(),
       typeId: this.state.eventType,
     };
@@ -49,7 +67,8 @@ class EventForm extends React.Component {
     const newEvent = {
       name: this.state.eventName,
       description: this.state.eventDescription,
-      date: new Date(this.state.eventDate),
+      date: this.state.eventDate,
+      time: this.state.eventTime,
       uid: authData.getUid(),
       typeId: this.state.eventType,
     };
@@ -73,15 +92,23 @@ class EventForm extends React.Component {
     this.setState({ eventDate: e.target.value });
   }
 
+  timeChange = (e) => {
+    e.preventDefault();
+    this.setState({ eventTime: e.target.value });
+  }
 
   typeChange = (e) => {
     e.preventDefault();
     this.setState({ eventType: e.target.value });
   }
 
+  selectedEvent = (typeId) => {
+    this.setState({ eventType: typeId });
+  }
+
   render() {
     const {
-      eventName, eventDescription, eventDate, eventType,
+      eventName, eventDescription, eventDate, eventTime,
     } = this.state;
     const { eventId } = this.props.match.params;
     return (
@@ -113,14 +140,23 @@ class EventForm extends React.Component {
               value={eventDate}
               onChange={this.dateChange}
             />
+          <FormGroup>
+            <Label for="eventTime">Time</Label>
+            <Input
+              type="time"
+              name="time"
+              id="eventTime"
+              value={eventTime}
+              onChange={this.timeChange}
+              placeholder="time placeholder"
+            />
+          </FormGroup>
             <FormFeedback>Oh noes! that name is already taken</FormFeedback>
           </FormGroup>
           <FormGroup className="eventFormGroup">
             <Label for="eventType">Type of Event</Label>
-            <Input className="formLabels"
-              value={eventType}
-              onChange={this.typeChange}
-            />
+            <EventDropdown types={this.state.types} selectedEvent={this.selectedEvent}/>
+
             <FormFeedback valid tooltip>Sweet! that name is available</FormFeedback>
           </FormGroup>
           { eventId

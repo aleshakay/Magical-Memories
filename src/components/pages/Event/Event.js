@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Table } from 'reactstrap';
 
 import authData from '../../../helpers/data/authData';
 import eventData from '../../../helpers/data/eventData';
-import EventForm from '../EventTable/EventTable';
+import EventTableRow from '../EventTableRow/EventTableRow';
 import typeData from '../../../helpers/data/typeData';
 import EventBar from '../../shared/EventBar/EventBar';
 import './Event.scss';
-
 
 class Event extends React.Component {
   static propTypes = {
@@ -27,12 +27,15 @@ class Event extends React.Component {
 
   getType = () => {
     typeData.getAllEventTypes()
-      .then((types) => this.setState({ types }))
+      .then((types) => {
+        this.setState({ types });
+      })
       .catch((err) => console.error('errors from type:', err));
   }
 
   componentDidMount() {
     this.getEvents();
+    this.getType();
   }
 
   deleteEvent = (eventId) => {
@@ -45,7 +48,20 @@ class Event extends React.Component {
     return (
       <div className="Event">
         <EventBar />
-        {this.state.events.map((event) => <EventForm key={event.id} event={event} deleteEvent={this.deleteEvent}/>)}
+        <Table bordered responsive className="eventable">
+          <thead>
+            <tr className="eventTableHeader">
+              <th>Name</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.events.map((event) => <EventTableRow key={event.id} event={event} deleteEvent={this.deleteEvent} types={this.state.types} />)}
+          </tbody>
+        </Table>
       </div>
 
     );
