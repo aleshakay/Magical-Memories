@@ -25,7 +25,7 @@ class NavBar extends React.Component {
         return (
         <Nav className="NavBar text-center">
           <NavItem>
-            <Link className="nav-link NavBarLinks" to="/event/event123">Pictures</Link>
+            <Link className="nav-link NavBarLinks" to="/event/eventpictures">Pictures</Link>
           </NavItem>
           <NavItem>
             <Link className="nav-link NavBarLinks " to="/event/new">Schedule</Link>
