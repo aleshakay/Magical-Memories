@@ -46,6 +46,7 @@ class EventForm extends React.Component {
   }
 
   editEventEvent = (e) => {
+    alert('Your event is being updated!');
     e.preventDefault();
     const { eventId } = this.props.match.params;
     const editEvent = {
@@ -63,6 +64,7 @@ class EventForm extends React.Component {
 
 
   saveScheduleEvent = (e) => {
+    alert('Your event is being submitted!');
     e.preventDefault();
     const newEvent = {
       name: this.state.eventName,
