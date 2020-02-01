@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import authData from '../../../helpers/data/authData';
 import eventData from '../../../helpers/data/eventData';
-import EventForm from '../EventTable/EventTable';
+import EventTable from '../EventTable/EventTable';
 import typeData from '../../../helpers/data/typeData';
 import EventBar from '../../shared/EventBar/EventBar';
 import './Event.scss';
@@ -45,7 +45,7 @@ class Event extends React.Component {
     return (
       <div className="Event">
         <EventBar />
-        {this.state.events.map((event) => <EventForm key={event.id} event={event} deleteEvent={this.deleteEvent} types={this.state.types} />)}
+        {this.state.events.map((event) => <EventTable key={event.id} event={event} deleteEvent={this.deleteEvent} types={this.state.types} />)}
       </div>
 
     );

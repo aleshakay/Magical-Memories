@@ -4,11 +4,10 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption,
 } from 'reactstrap';
-
-import pictureShape from '../../../helpers/propz/pictureShape';
 import './PicCarousel.scss';
+// import pictureShape from '../../../helpers/propz/pictureShape';
+
 
 const PicCarousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,15 +30,22 @@ const PicCarousel = (props) => {
     setActiveIndex(newIndex);
   };
 
+  // const getPictures = () => {
+  //   pictureData.getPicturesByEventId()
+  //     .then((picture) => this.setState({ picture }))
+  //     .catch((err) => console.error('error from get picture', err));
+  // };
+
   const slides = props.pictures.map((picture) => (
     <CarouselItem
       onExiting={() => setAnimating(true)}
       onExited={() => setAnimating(false)}
-      key={picture.src}
+      key={picture.id}
     >
-      <img src={picture.pictureUrl} alt={picture.altText} />
+      <img src={picture.src} alt={picture.eventId} />
     </CarouselItem>
   ));
+
 
   return (
     <Carousel
@@ -47,7 +53,7 @@ const PicCarousel = (props) => {
       next={next}
       previous={previous}
     >
-      <CarouselIndicators pictures={pictures} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      <CarouselIndicators pictures={props.pictures} activeIndex={activeIndex} onClickHandler={goToIndex} />
       {slides}
       <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />

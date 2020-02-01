@@ -1,11 +1,16 @@
 import React from 'react';
 import pictureData from '../../../helpers/data/pictureData';
 import PicCarousel from '../../shared/PicCarousel/PicCarousel';
+import pictureShape from '../../../helpers/propz/pictureShape';
 import './Home.scss';
 
 class Home extends React.Component {
   state = {
     pictures: [],
+  }
+
+  static propTypes = {
+    picture: pictureShape.pictureShape,
   }
 
   getPictures = () => {
@@ -19,10 +24,11 @@ class Home extends React.Component {
   }
 
   render() {
+    const { pictures } = this.state;
     return (
       <div className="Home">
         <h1 className="homeTitle">Home</h1>
-        <PicCarousel pictures={this.state.pictures} />
+        <PicCarousel pictures={pictures} />
       </div>
     );
   }

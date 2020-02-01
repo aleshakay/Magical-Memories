@@ -20,8 +20,25 @@ class EventTable extends React.Component {
     deleteEvent(event.id);
   }
 
+  renderType = (key) => {
+    const eventIds = this.props.event[key];
+    const typeIds = this.props.type[key];
+    console.log(eventIds, typeIds);
+    const printType = typeIds.typeId === eventIds.typeId;
+    if (!eventIds) return null;
+    if (!printType) {
+      return (
+        <td>No reservation</td>
+      );
+    }
+    return (
+        <td>{typeIds.name}</td>
+    );
+  };
+
   render() {
     const { event } = this.props;
+
     return (
       <div className="EventTable">
         <Table bordered responsive>
@@ -31,7 +48,7 @@ class EventTable extends React.Component {
               <td>{event.description}</td>
               <td>{moment(event.date).format('lll')}</td>
               <td>{event.description}</td>
-              <td>{event.typeId}</td>
+              <td>(this.renderType)</td>
                 <td>
                 <Button className="deleteBtn" onClick={this.deleteEventEvent}>Delete Event</Button>
                 <Link className="btn btn-light editBtn" to={`/event/${event.id}/edit`}>Edit Event</Link>
