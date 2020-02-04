@@ -46,6 +46,7 @@ class EventForm extends React.Component {
   }
 
   editEventEvent = (e) => {
+    alert('Your event is being updated!');
     e.preventDefault();
     const { eventId } = this.props.match.params;
     const editEvent = {
@@ -63,6 +64,7 @@ class EventForm extends React.Component {
 
 
   saveScheduleEvent = (e) => {
+    alert('Your event is being submitted!');
     e.preventDefault();
     const newEvent = {
       name: this.state.eventName,
@@ -140,9 +142,9 @@ class EventForm extends React.Component {
               value={eventDate}
               onChange={this.dateChange}
             />
-          <FormGroup>
+          <FormGroup className="eventFormGroup">
             <Label for="eventTime">Time</Label>
-            <Input
+            <Input className="formLabels"
               type="time"
               name="time"
               id="eventTime"
@@ -156,8 +158,6 @@ class EventForm extends React.Component {
           <FormGroup className="eventFormGroup">
             <Label for="eventType">Type of Event</Label>
             <EventDropdown types={this.state.types} selectedEvent={this.selectedEvent}/>
-
-            <FormFeedback valid tooltip>Sweet! that name is available</FormFeedback>
           </FormGroup>
           { eventId
             ? <Button className="UpdateBtn" onClick={this.editEventEvent}>Update Event</Button>

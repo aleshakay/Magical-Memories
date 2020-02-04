@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {
   Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
 } from 'reactstrap';
+import './EventDropdown.scss';
 
 const EventDropdown = (props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -10,13 +11,12 @@ const EventDropdown = (props) => {
 
   const selectedEvent = (e) => {
     e.preventDefault();
-    console.log('e', e.target.id);
     props.selectedEvent(e.target.id);
   };
 
   return (
     <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle caret>
+      <DropdownToggle caret className="dropdownToggle">
         Dropdown
         </DropdownToggle>
       <DropdownMenu>

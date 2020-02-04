@@ -6,7 +6,6 @@ import {
   CarouselIndicators,
 } from 'reactstrap';
 import './PicCarousel.scss';
-// import pictureShape from '../../../helpers/propz/pictureShape';
 
 
 const PicCarousel = (props) => {
@@ -29,12 +28,6 @@ const PicCarousel = (props) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-
-  // const getPictures = () => {
-  //   pictureData.getPicturesByEventId()
-  //     .then((picture) => this.setState({ picture }))
-  //     .catch((err) => console.error('error from get picture', err));
-  // };
 
   const slides = props.pictures.map((picture) => (
     <CarouselItem
