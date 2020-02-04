@@ -19,30 +19,34 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { authed } = this.props;
+    const { authed, userObj } = this.props;
     const navBuilder = () => {
       if (authed) {
         return (
-        <Nav className="NavBar text-center">
+        <Nav className="NavBar NavBarLinks">
+          <h1 className="ml-0">
+          <span><Link className="brandLogo" to="/"><i className="fas fa-camera-retro fa-3x"></i></Link></span>
+          </h1>
           <NavItem>
             <Link className="nav-link NavBarLinks" to="/event/eventpictures">Pictures</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link NavBarLinks " to="/event/new">Schedule</Link>
+            <Link className="nav-link NavBarLinks" to="/event/new">Schedule</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link NavBarLinks " to="/event">Events</Link>
+            <Link className="nav-link NavBarLinks" to="/event">Events</Link>
           </NavItem>
           <NavItem>
-            <Link className="nav-link NavBarLinks " to="/aboutus">About Us</Link>
+            <Link className="nav-link NavBarLinks" to="/aboutus">About Us</Link>
           </NavItem>
           <NavItem>
-            <Button className="float-right logOutButton" onClick={this.logMeOut}>Log Out</Button>
-          </NavItem>
+          <Link className="nav-link NavBarLinks " to="/">{userObj.displayName}</Link>
+        </NavItem>
+            <Button className="navbar-right logOutButton" onClick={this.logMeOut}>Log Out</Button>
         </Nav>
         );
       }
-      return (<Nav className="NavBar text-center"></Nav>);
+      return (<Nav className="NavBar NavBarLinks"></Nav>);
     };
     return (
     <div>

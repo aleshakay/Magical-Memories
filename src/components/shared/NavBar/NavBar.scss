@@ -1,13 +1,9 @@
-.NavBar {
-  justify-content: center;
+.NavBarLinks {
   font-family: 'La Belle Aurore', cursive;
   padding: 1em;
   font-size: 32px;
   color: white;
-    .NavBarLinks {
-      color: white;
-
-    }
+  place-content: space-around;
 }
 
 .logOutButton{
@@ -16,4 +12,12 @@
   float: right !important;
   color: grey;
   background-color: white;
+}
+
+.brandLogo{
+  float: left !important;
+  .fa-camera-retro{
+    size: 7x;
+    color: pink;
+  }
 }
