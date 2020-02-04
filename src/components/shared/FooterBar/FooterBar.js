@@ -3,7 +3,6 @@ import {
   Nav, NavItem, NavLink,
 } from 'reactstrap';
 import './FooterBar.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class FooterBar extends React.Component {
   render() {
@@ -14,13 +13,13 @@ class FooterBar extends React.Component {
         return (
         <Nav className="footerLinks text-center">
           <NavItem>
-            <NavLink className="nav-link footerLinks" href="#"><i className="fab fa-facebook"></i></NavLink>
+            <NavLink className="nav-link footerLinks" href="https://www.facebook.com/aleshar"><i className="fab fa-facebook"></i></NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link footerLinks " href="#"><i className="fa fa-heart"></i></NavLink>
+            <NavLink className="nav-link footerLinks "><i className="fa fa-heart"></i></NavLink>
           </NavItem>
           <NavItem>
-            <NavLink className="nav-link footerLinks"><i className="fab fa-linkedin"></i></NavLink>
+            <NavLink className="nav-link footerLinks" href="https://www.linkedin.com/in/alesha-reed/"><i className="fab fa-linkedin"></i></NavLink>
           </NavItem>
           <NavItem>
             <NavLink className="nav-link footerLinks"><i className="fa fa-heart"></i></NavLink>

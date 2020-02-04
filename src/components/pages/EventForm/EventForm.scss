@@ -1,6 +1,6 @@
 .saveBtn{
   font-family: 'La Belle Aurore', cursive;
-  font-size: 32px;
+  font-size: 28px;
   // float: left;
   // text-align-last: justify;
   color: grey;
@@ -9,18 +9,25 @@
 
 .EventForm{
   font-family: 'La Belle Aurore', cursive;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: rgb(241, 124, 144);
 }
 
 .formLabels{
   font-family: 'La Belle Aurore', cursive;
-  font-size: 32px;
+  font-size: 28px;
   color: rgb(241, 124, 144);
-  width: 60%;
+  width: 40%;
 }
 
 .eventFormGroup{
   text-align-last: justify;
+}
+
+.border{
+  border-style: outset;
+  border: 10px solid pink !important;
+  padding: 1em;
+  text-align: -webkit-center;
 }

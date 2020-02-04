@@ -53,7 +53,6 @@ class App extends React.Component {
 
   render() {
     const { authed, userObj } = this.state;
-    console.log(userObj.displayName);
     return (
       <div className="App">
         <Router>

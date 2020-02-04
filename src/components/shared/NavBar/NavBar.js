@@ -40,8 +40,8 @@ class NavBar extends React.Component {
             <Link className="nav-link NavBarLinks" to="/aboutus">About Us</Link>
           </NavItem>
           <NavItem>
-          <Link className="nav-link NavBarLinks " to="/">{userObj.displayName}</Link>
-        </NavItem>
+          <Link className="nav-link NavBarLinks greetings" to="/">Greetings: {userObj.displayName}</Link>
+          </NavItem>
             <Button className="navbar-right logOutButton" onClick={this.logMeOut}>Log Out</Button>
         </Nav>
         );
