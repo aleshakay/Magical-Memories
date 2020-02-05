@@ -31,7 +31,7 @@ class SinglePicture extends React.Component {
         <div>
           <h1 className="singlePictureTitle">Pictures...</h1>
         </div>
-        <div className="picCarousel">
+        <div className="picCarousel offset-1">
           <PicCarousel pictures={pictures} />
         </div>
       </div>
