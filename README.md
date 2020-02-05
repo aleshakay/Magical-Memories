@@ -35,3 +35,8 @@ Clients are able to create, update, delete and view events for themselves.
 Alesha Reed 
 
 ## ScreenShots
+![Main View](https://github.com/aleshakay/Magical-Memories/blob/master/src/assets/Screen%20Shot%202020-02-04%20at%2019.36.47.png)
+
+![Main View](https://github.com/aleshakay/Magical-Memories/blob/master/src/assets/Screen%20Shot%202020-02-04%20at%2019.36.57.png)
+
+![Main View](https://github.com/aleshakay/Magical-Memories/blob/master/src/assets/Screen%20Shot%202020-02-04%20at%2019.37.15.png)
