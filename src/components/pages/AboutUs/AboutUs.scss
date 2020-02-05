@@ -3,4 +3,12 @@
   font-family: 'La Belle Aurore', cursive;
   font-size: 32px;
   color: rgb(241, 124, 144);
+  min-height: 100vh;
+  padding-bottom: 10em;
+}
+
+.aboutcontainer{
+  min-height: 100%;
+  background-color: rgb(241, 124, 144);
+  padding-bottom: 8em;
 }

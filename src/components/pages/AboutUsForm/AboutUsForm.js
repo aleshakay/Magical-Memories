@@ -11,7 +11,7 @@ class AboutUsForm extends React.Component {
     return (
       <div className="AboutUsForm">
         <Col sm="6">
-          <Card>
+          <Card className="aboutuscard">
             <CardImg className="photogrpher" top width="40%" src={PhotographerCamera} alt="Card image cap" />
             <CardBody>
               <CardTitle>Magical Memeories</CardTitle>
