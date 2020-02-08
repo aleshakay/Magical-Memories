@@ -1,3 +1,22 @@
 .Auth {
   display: block;
+  background-color: gray;
+}
+
+.mybutton-big, Button{
+  background-color: rgb(241, 124, 144);;
+  color: white;
+  border: inset;
+  font-family: 'La Belle Aurore', cursive;
+  font-weight: bold;
+  font-size: -webkit-xxx-large;
+  margin-top: 10em;
+}
+
+.magicalMemoriesLoginTitle{
+  font-family: 'La Belle Aurore', cursive;
+  font-size: -webkit-xxx-large;
+  font-weight: bold;
+  color: white;
+  margin-top: 2em;
 }
