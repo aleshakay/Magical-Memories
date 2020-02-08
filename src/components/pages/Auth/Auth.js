@@ -1,7 +1,11 @@
 import React from 'react';
 import firebase from 'firebase/app';
-import 'firebase/auth';
+import {
+  Card, Button, CardTitle, CardText, CardImg, CardImgOverlay,
+} from 'reactstrap';
 
+import 'firebase/auth';
+import blackandwhiteflower from '../../../assets/bwflower.jpeg';
 import './Auth.scss';
 
 class Auth extends React.Component {
@@ -14,8 +18,18 @@ class Auth extends React.Component {
   render() {
     return (
       <div className="Auth">
-        <h1>Auth Page</h1>
-        <button className="btn button-big" onClick={this.loginClickEvent}>Login with Google</button>
+        <div className="container-fluid">
+          <Card inverse>
+            <CardImg width="100%" src={blackandwhiteflower} alt="Card image cap" />
+            <CardImgOverlay>
+            <CardTitle className="magicalMemoriesLoginTitle">Magical Memories</CardTitle>
+            <Button className="btn mybutton-big" onClick={this.loginClickEvent}>Login Here</Button>
+            <CardText>
+              <small className="text-muted">Login with Google</small>
+            </CardText>
+          </CardImgOverlay>
+        </Card>
+        </div>
       </div>
     );
   }
