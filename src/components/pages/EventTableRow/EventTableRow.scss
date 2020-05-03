@@ -1,10 +1,10 @@
 .EventTableRow{
-  font-family: 'La Belle Aurore', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
-  color: rgb(241, 124, 144);
+  color: #f17c90;
 }
 .deleteBtn{
-  font-family: 'La Belle Aurore', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   // float: left;
   // text-align-last: justify;
@@ -13,10 +13,11 @@
 }
 
 .editBtn{
-  font-family: 'La Belle Aurore', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   // float: left;
   // text-align-last: justify;
-  background-color: rgb(241, 124, 144);
+  background-color: #f17c90;
   color: white;
+  margin: 20px 0px 0px;
 }

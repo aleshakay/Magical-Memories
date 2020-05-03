@@ -23,27 +23,27 @@ class NavBar extends React.Component {
     const navBuilder = () => {
       if (authed) {
         return (
-        <Nav className="NavBar NavBarLinks">
-          <h1 className="ml-0">
-          <span><Link className="brandLogo" to="/"><i className="fas fa-camera-retro fa-3x"></i></Link></span>
-          </h1>
-          <NavItem>
-            <Link className="nav-link NavBarLinks" to="/event/eventpictures">Pictures</Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link NavBarLinks" to="/event/new">Schedule</Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link NavBarLinks" to="/event">Events</Link>
-          </NavItem>
-          <NavItem>
-            <Link className="nav-link NavBarLinks" to="/aboutus">About Us</Link>
-          </NavItem>
-          <NavItem>
-          <Link className="nav-link NavBarLinks greetings" to="/">Greetings: {userObj.displayName}</Link>
-          </NavItem>
-            <Button className="navbar-right logOutButton" onClick={this.logMeOut}>Log Out</Button>
-        </Nav>
+          <Nav className="NavBar NavBarLinks">
+              <h1 className="ml">
+              <span><Link className="brandLogo" to="/"><i className="fas fa-camera-retro fa-3x"></i></Link></span>
+              </h1>
+              <NavItem>
+                <Link className="nav-link NavBarLinks" to="/event/eventpictures">Pictures</Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link NavBarLinks" to="/event/new">Schedule</Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link NavBarLinks" to="/event">Events</Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link NavBarLinks" to="/aboutus">About Us</Link>
+              </NavItem>
+              <NavItem>
+              <Link className="nav-link NavBarLinks greetings" to="/">Greetings: {userObj.displayName}</Link>
+              </NavItem>
+                <Button className="navbar mr-5 logOutButton" onClick={this.logMeOut}>Log Out</Button>
+            </Nav>
         );
       }
       return (<Nav className="NavBar NavBarLinks"></Nav>);

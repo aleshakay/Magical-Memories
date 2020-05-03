@@ -9,16 +9,17 @@
 .logOutButton{
   font-family: 'La Belle Aurore', cursive;
   font-size: 32px;
+  font-weight: bolder;
   float: right !important;
   color: grey;
-  background-color: white;
+  background-color: rgb(197, 191, 191);
 }
 
 .brandLogo{
   float: left !important;
   .fa-camera-retro{
     size: 7x;
-    color: pink;
+    color: #f17c90;
   }
 }
 

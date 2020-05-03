@@ -1,10 +1,10 @@
 .eventable{
-  font-family: 'La Belle Aurore', cursive;
+  font-family: 'Open Sans', sans-serif;
   font-weight: bolder;
-  color: rgb(241, 124, 144);
+  color: #f17c90;
   padding: 12px;
   font-size: 28px;
-  background-color: grey;
+  background-color: white(250, 244, 244, 0.685);
 }
 
 .eventTableHeader{
@@ -13,4 +13,5 @@
   background-color: #f17c90;
   color: white;
   font-size: 32px;
+  font-family: 'La Belle Aurore', cursive;
 }
